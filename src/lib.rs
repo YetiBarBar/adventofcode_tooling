@@ -1,3 +1,5 @@
+use std::num::ParseIntError;
+
 use thiserror::Error;
 
 pub mod inputparser;
@@ -9,6 +11,8 @@ pub use crate::inputparser::{
 pub enum AocError {
     #[error("Incorrect parsing")]
     ParsingError,
+    #[error("Invalid int parsing")]
+    ParseIntError(#[from] ParseIntError),
     #[error("IoError")]
     IoError(#[from] std::io::Error),
 }
