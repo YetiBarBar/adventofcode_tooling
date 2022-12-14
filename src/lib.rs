@@ -19,3 +19,9 @@ pub enum AocError {
     #[error("IoError")]
     IoError(#[from] std::io::Error),
 }
+
+#[derive(Debug, Eq, PartialEq, Copy, Clone)]
+pub enum Part {
+    Part1,
+    Part2,
+}
